@@ -2,9 +2,9 @@ import numpy as np
 from tensorflow.keras.layers import Input, LSTM, Dropout, Dense, Activation, Embedding
 from tensorflow.keras.models import Model
 
-def pretrained_embedding_layer(word_to_vec_map, word_to_index):
-	vocab_len = len(word_to_index) + 1
-	emb_dim = word_to_vec_map["cucumber"].shape[0]
+def pretrained_embedding_layer(word_to_vec_map, word_to_index):    
+	vocab_len = len(word_to_index) + 1                  
+	emb_dim = word_to_vec_map["cucumber"].shape[0]      
 	emb_matrix = np.zeros((vocab_len, emb_dim))
 
 	for word, idx in word_to_index.items():
@@ -12,13 +12,13 @@ def pretrained_embedding_layer(word_to_vec_map, word_to_index):
 
 	embedding_layer = Embedding(vocab_len, emb_dim, trainable=False)
 
-	embedding_layer.build((None,))
+	embedding_layer.build((None,)) 
 	embedding_layer.set_weights([emb_matrix])
 
 	return embedding_layer
 
 def define_model(input_shape, word_to_vec_map, word_to_index):
-	sentence_indices = Input(shape= input_shape, dtype='int32')
+	sentence_indices = Input(shape=input_shape, dtype='int32')
 	embedding_layer = pretrained_embedding_layer(word_to_vec_map, word_to_index)
 	embeddings = embedding_layer(sentence_indices)
 	X = LSTM(128, return_sequences=True)(embeddings)
@@ -28,6 +28,6 @@ def define_model(input_shape, word_to_vec_map, word_to_index):
 	X = Dense(units=5, activation='softmax')(X)
 	X = Activation('softmax')(X)
 
-	model = Model(sentence_indices, X)
+	model = Model(sentence_indices,X)
 
 	return model

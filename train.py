@@ -19,16 +19,17 @@ model = define_model((maxLen,), word_to_vec_map, word_to_index)
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 X_train_indices = sentences_to_indices(X_train, word_to_index, maxLen)
-Y_train_one_hot = convert_to_one_hot(Y_train, C=5)
+Y_train_one_hot = convert_to_one_hot(Y_train, C = 5)
+
 
 print("===" * 20)
 print("MODEL TRAINING STARTED")
-history = model.fit(X_train_indices, Y_train_one_hot, epochs = 60, batch_size=32, shuffle=True)
+history = model.fit(X_train_indices, Y_train_one_hot, epochs = 50, batch_size=32, shuffle=True)
 print("MODEL TRAINING FINISHED")
 print("===" * 20)
 print("SAVING THE MODEL")
 model_filename = 'emojify.h5'
-model.save(filname)
+model.save(model_filename)
 print("===" * 20)
 print("MODEL SAVED AS: ", model_filename)
 print("===" * 20)

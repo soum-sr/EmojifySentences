@@ -11,37 +11,36 @@ emoji_dictionary = {"0": "\u2764\uFE0F",
 def read_glove_vecs(glove_file):
 	with open(glove_file, 'r', encoding='utf8') as f:
 		words = set()
-		word_to_vec_map = dict()
+		word_to_vec_map = {}
 		for line in f:
 			line = line.strip().split()
 			curr_word = line[0]
 			words.add(curr_word)
 			word_to_vec_map[curr_word] = np.array(line[1:], dtype=np.float64)
+        
 		i = 1
-		words_to_index = dict()
-		index_to_words = dict()
-
+		words_to_index = {}
+		index_to_words = {}
 		for w in sorted(words):
-			words_to_index[w] = i 
+			words_to_index[w] = i
 			index_to_words[i] = w
-			i += 1
-		return words_to_index, index_to_words, word_to_vec_map
+			i = i + 1
+	return words_to_index, index_to_words, word_to_vec_map
 
 def read_csv(filename):
 	df = pd.read_csv(filename, header=None, usecols=[0,1])
-	dataset = np.array(df)
-	phrase, emoji = [], []
-
+	dataset= np.array(df)
+	phrase, emoji = list(), list()
 	for p, e in dataset:
 		if '\t' in p:
 			p = p[:-1]
 		phrase.append(p)
 		emoji.append(e)
 	X = np.array(phrase)
-	Y = np.array(emoji, dtype=int)
-	return X,Y
+	y = np.array(emoji, dtype=int)
+	return X,y
 
-def sentences_to_indices(X, words_to_index, max_len):
+def sentences_to_indices(X, word_to_index, max_len):
 	m = X.shape[0]
 	X_indices = np.zeros((m, max_len))
 
@@ -49,12 +48,12 @@ def sentences_to_indices(X, words_to_index, max_len):
 		sentence_words = X[i].lower().split()
 		j = 0
 		for w in sentence_words:
-			X_indices[i,j] = words_to_index[w]
-			j += 1
-		return X_indices
+			X_indices[i,j] = word_to_index[w]
+			j+=1
+	return X_indices
 
 def label_to_emoji(val):
-	return emoji.emojize(emoji_dictionary[str(val)], use_aliases=True)
+    return emoji.emojize(emoji_dictionary[str(val)], use_aliases=True)
 
 def convert_to_one_hot(Y,C):
 	Y = np.eye(C)[Y.reshape(-1)]
