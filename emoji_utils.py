@@ -1,4 +1,6 @@
 import emoji
+import numpy as np 
+import pandas as pd
 
 emoji_dictionary = {"0": "\u2764\uFE0F", 
                     "1": ":baseball:",
@@ -43,3 +45,7 @@ def read_csv(filename):
 
 def label_to_emoji(val):
 	return emoji.emojize(emoji_dictionary[str(val)], use_aliases=True)
+
+def convert_to_one_hot(Y,C):
+	Y = np.eye(C)[Y.reshape(-1)]
+	return Y
