@@ -41,7 +41,17 @@ def read_csv(filename):
 	Y = np.array(emoji, dtype=int)
 	return X,Y
 
+def sentences_to_indices(X, words_to_index, max_len):
+	m = X.shape[0]
+	X_indices = np.zeros((m, max_len))
 
+	for i in range(m):
+		sentence_words = X[i].lower().split()
+		j = 0
+		for w in sentence_words:
+			X_indices[i,j] = words_to_index[w]
+			j += 1
+		return X_indices
 
 def label_to_emoji(val):
 	return emoji.emojize(emoji_dictionary[str(val)], use_aliases=True)
