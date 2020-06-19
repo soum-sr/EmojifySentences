@@ -18,18 +18,24 @@
     
     <div class="row work-area">
 
-        <div class="col-sm-6 input_section" style="background-color:lavender;">
+        <div class="input_section">
         <!-- UPLOAD SECTION -->
-          <h1>Input Section</h1>
+          <h1>Enter your text</h1>
           <form id="upload-form" action="{{ url_for('index') }}" method="POST">
-              <textarea name="sentences" id="text_box" cols="30" rows="10"></textarea>
-              <input type="submit" class="emojify_button" value="Emojify" id="submit_input">
+            <div class="textstuff">
+                <textarea name="sentences" id="field" placeholder="Type Here" maxlength="3000" rows="10" cols="40"></textarea>
+            </div>
+            <br>
+            <div class="emojify-button">
+                <input type="submit" class="btn btn-success emojify-button" value="Emojify" id="submit_input">
+            </div>
           </form>
 
         </div>
+        
     
     
-        <div class="col-sm-6 output_section" style="background-color:lavenderblush;">
+        <div class="output_section container" style="background-color:lavenderblush;">
         <!-- OUTPUT SECTION -->
         <h1>Output Section</h1>
             <p>{{emojified}}</p>
