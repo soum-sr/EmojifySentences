@@ -9,7 +9,7 @@ textarea{
     width:90%;
     height:250px;
     font-size:20px;
-    font-family:monospace;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius:10px;
     outline:none;
     transition: box-shadow .3s ease
@@ -95,15 +95,7 @@ textarea{
     background-color:white;
     border-radius: 10px;
     font-size:20px;
-    font-family:monospace;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius:10px;
 
-}
-#outbox{
-    
-    width:100%;
-    border-radius: 10px;
-    font-size:20px;
-    font-family:monospace;
-    border-radius:10px;
 }

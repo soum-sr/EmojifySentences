@@ -12,7 +12,7 @@
 <body>
     <div class="container-fluid">
         <div class="heading">
-            <h1 style="font-size:35px">Emojify Sentences &#128526;</h1>
+            <h1 style="font-size:35px">&#128526; Emojify Sentences &#128526;</h1>
         </div>
 
         <div class="break"></div>
@@ -22,7 +22,7 @@
 
             <div class="input_section">
                 <!-- UPLOAD SECTION -->
-                <h1>Enter your text</h1>
+                <h1>Enter your sentences</h1>
                 <form id="upload-form" action="{{ url_for('index') }}" method="POST">
                     <div class="textstuff">
                         <textarea name="sentences" id="field" placeholder="Type Here" maxlength="3000" rows="10" cols="40"></textarea>
@@ -37,7 +37,7 @@
     
             <div class="output_section">
                 <!-- OUTPUT SECTION -->
-                <h1>Emojified Sentence</h1>
+                <h1>Emojified Sentences</h1>
                 <div class="output-text">
                     <div class="output-text-area">
                         <p>{{emojified}}</p>
