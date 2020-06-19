@@ -3,7 +3,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 import numpy as np
 from buildModel import define_model,pretrained_embedding_layer
-from emoji_utils import read_glove_vecs,sentences_to_indices,label_to_emoji
+from utils import read_glove_vecs,sentences_to_indices,label_to_emoji
 
 maxLen = 10
 

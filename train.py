@@ -4,7 +4,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 import pandas as pd
 import numpy as np 
-from emoji_utils import read_csv,read_glove_vecs,sentences_to_indices,convert_to_one_hot
+from utils import read_csv,read_glove_vecs,sentences_to_indices,convert_to_one_hot
 from buildModel import define_model, pretrained_embedding_layer
 
 word_to_index, index_to_word, word_to_vec_map = read_glove_vecs('glove.6B.50d.txt')

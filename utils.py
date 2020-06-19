@@ -1,12 +1,24 @@
 import emoji
 import numpy as np 
 import pandas as pd
+import string
 
 emoji_dictionary = {"0": "\u2764\uFE0F", 
                     "1": ":baseball:",
                     "2": ":smile:",
                     "3": ":disappointed:",
                     "4": ":fork_and_knife:"}
+
+def preprocess(sentence):
+	words = sentence.split()
+	table = str.maketrans('','',string.punctuation)
+	words = [w.translate(table) for w in words]
+	words = [word for word in words if word.isalpha()]
+	return ' '.join(words)
+	
+
+
+
 
 def read_glove_vecs(glove_file):
 	with open(glove_file, 'r', encoding='utf8') as f:
@@ -58,3 +70,4 @@ def label_to_emoji(val):
 def convert_to_one_hot(Y,C):
 	Y = np.eye(C)[Y.reshape(-1)]
 	return Y
+
