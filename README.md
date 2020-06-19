@@ -19,7 +19,7 @@ Run it in the terminal:
 ```
 python run.py
 ```
-## OR 
+<b>OR</b>
 
 Run the flask app:
 ```
