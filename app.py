@@ -35,6 +35,10 @@ def emojify(sentences):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+	if request.method == "POST":
+		sentences = request.form['sentences']
+		emojified = emojify(sentences)
+		return render_template('index.html', emojified=emojified)
 	return render_template('index.html')
 
 if __name__ == '__main__':
