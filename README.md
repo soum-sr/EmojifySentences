@@ -10,12 +10,19 @@ Download the <b>glove.6B.50d.txt</b> file from https://www.kaggle.com/watts2/glo
  
 Train the model before you run using:
 ```
-python3 train.py
+python train.py
 ```
 It will create a <b>emojify.h5</b> weights file. Once you have both files(glove.6B.50d.txt and emojify.h5),
 
-Run the model using:
+
+Run it in the terminal:
 ```
-python3 run.py
+python run.py
+```
+## OR 
+
+Run the flask app:
+```
+python app.py
 ```
 
