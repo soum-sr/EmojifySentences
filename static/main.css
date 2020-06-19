@@ -5,8 +5,9 @@ body{
 
 textarea{
     padding:10px;
-    /* margin:0 auto; */
-    border:none ;
+    border:none;
+    width:90%;
+    height:250px;
     font-size:20px;
     font-family:monospace;
     border-radius:10px;
@@ -14,9 +15,9 @@ textarea{
     transition: box-shadow .3s ease
   }
   
-  textarea:-ms-input-placeholder {color: #13e723}
-  textarea::-moz-placeholder {color: #13e723}
-  textarea::-webkit-input-placeholder {color: #13e723}
+  textarea:-ms-input-placeholder {color: #000000}
+  textarea::-moz-placeholder {color: #000000}
+  textarea::-webkit-input-placeholder {color: #000000}
   
 
   textarea:focus,
@@ -26,10 +27,20 @@ textarea{
     text-align: center;
     color:#fff;
     font-family: monospace;
+    
+}
+.break{
+    width: 100%;
+    height: 25px;
+    float: left;
+    clear: both;
+    margin-top:25px;
+    margin-bottom: 50px;
+    border-top: 5px solid transparent;
+    border-color: #333;
 }
 
 .input_section{
-    background-color:green;
     float:left;
     width:49%;
     height:500px !important;
@@ -60,4 +71,39 @@ textarea{
     width:49%;
     height:500px !important;
     /* overflow:scroll; */
+}
+.output_section h1{
+    color:white;
+    font-family: monospace;
+    font-size:28px;
+    text-align:center;
+
+}
+
+.output_text{
+    width:90%;
+    background: red;
+    height:200px;
+    
+}
+
+.output-text-area{
+    width:90%;
+    margin:10px auto;
+    text-align:center;
+    height: 250px;
+    background-color:white;
+    border-radius: 10px;
+    font-size:20px;
+    font-family:monospace;
+    border-radius:10px;
+
+}
+#outbox{
+    
+    width:100%;
+    border-radius: 10px;
+    font-size:20px;
+    font-family:monospace;
+    border-radius:10px;
 }
