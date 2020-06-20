@@ -1,7 +1,7 @@
 # Emojify Sentences
 
 #### Predict cool emojis for the sentences you type.
-<img src="/emojify_webapp.gif" width="250" height="250"/>
+<img src="/emojify_webapp.gif" width="650" height="433"/>
 
 
 #
