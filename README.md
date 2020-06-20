@@ -1,7 +1,8 @@
 # Emojify Sentences
 
 #### Predict cool emojis for the sentences you type.
-![In-use Animation](https://github.com/soum-sr/EmojifySentences/blob/master/emojify_webapp.gif?raw=true "In-use Animation")
+<img src="/emojify_webapp.gif" width="250" height="250"/>
+
 
 #
  
