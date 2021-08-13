@@ -13,13 +13,13 @@ maxLen = 10
 
 word_to_index, index_to_word, word_to_vec_map = read_glove_vecs('glove.6B.50d.txt')
 
+# Create the model and update trained weights
 model = define_model((maxLen,), word_to_vec_map, word_to_index)
 model.load_weights('emojify.h5')
 
 
 def emojify(sentences):
 	sentences = sentences.split('.')
-
 	out = []
 	for sentence in sentences:
 		s = preprocess(sentence)
@@ -42,4 +42,4 @@ def index():
 	return render_template('index.html')
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run()
